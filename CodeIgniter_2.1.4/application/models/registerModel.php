@@ -12,7 +12,20 @@ class registerModel extends CI_Model
     {
         $data = array('email' => $email,'password' => $password);
 
-		$this->db->insert('users', $data);
+        $this->db->like('email', $email);
+        $this->db->from('users');
+
+        if($this->db->count_all_results() > 0)
+        {
+            echo "Email already exists.";
+            return false;
+
+        }else
+        {
+            $this->db->insert('users', $data);
+            return true;
+        }
+
     }
 
 }

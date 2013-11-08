@@ -14,6 +14,24 @@ class database extends CI_Model
         return $query->result();
     }
 
+    function get_specific_product($productName)
+    {
+        $query = $this->db->get_where('products', array('name' => $productName));
+        // echo($query->result()[0]->name);
+        $product = $query->result();
+        return $product;
+    }
+
+    function get_favorites($userID)
+    {
+        $this->db->select('name, price');
+        $this->db->join('products', 'products.productID = favorites.productID');
+        $query = $this->db->get_where('favorites', array('userID' => $userID));
+        // echo($query->result()[0]->name);
+        $favorites = $query->result();
+        return $favorites;
+    }
+
 }
 
 ?>

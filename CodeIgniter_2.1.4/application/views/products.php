@@ -8,7 +8,7 @@
 	<nav>
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="products">Products</a></li>
+			<li><a href="productsController">Products</a></li>
 			<li><a href="">Custom</a></li>
 			<li><a href="">Cart</a></li>
 			<li><a href="form">Register</a></li>
@@ -29,6 +29,7 @@
 	<p>Price: $<?=$item->price?>.00</p>
 	<p>Description: <?=$item->description?></p>
 	<p>Color: <?=$item->color?></p>
+	<p><a href="favoritesController">Add to Favorites</a></p>
 
 <?php endforeach; ?>
 </div>
