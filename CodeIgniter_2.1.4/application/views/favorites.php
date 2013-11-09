@@ -8,7 +8,7 @@
 	<nav>
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="products">Products</a></li>
+			<li><a href="productsController">Products</a></li>
 			<li><a href="">Custom</a></li>
 			<li><a href="">Cart</a></li>
 			<li><a href="form">Register</a></li>
@@ -19,7 +19,7 @@
 	<h1>Akero Clothing Co.</h1>
 
 	<div>
-		<p>Welcome to the Landing Page!</p>
+		<p>Here are your favorites!</p>
 	</div>
 
 </div>

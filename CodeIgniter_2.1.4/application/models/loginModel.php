@@ -1,6 +1,6 @@
 <?php
 
-class registerModel extends CI_Model
+class loginModel extends CI_Model
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class registerModel extends CI_Model
         $this->load->database();
     }
     
-    function register($email,$password)
+    function login($email,$password)
     {
         $data = array('email' => $email,'password' => $password);
 
@@ -17,13 +17,11 @@ class registerModel extends CI_Model
 
         if($this->db->count_all_results() > 0)
         {
-            echo "Email already exists.";
-            return false;
+            return true;
 
         }else
         {
-            $this->db->insert('users', $data);
-            return true;
+            return false;
         }
 
     }

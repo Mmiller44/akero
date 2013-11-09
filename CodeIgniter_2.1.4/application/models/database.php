@@ -14,6 +14,14 @@ class database extends CI_Model
         return $query->result();
     }
 
+    function get_specific_product($productName)
+    {
+        $query = $this->db->get_where('products', array('name' => $productName));
+        // echo($query->result()[0]->name);
+        $product = $query->result();
+        return $product;
+    }
+
 }
 
 ?>

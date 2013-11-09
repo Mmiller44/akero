@@ -1,16 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class registerController extends CI_Controller {
+class loginController extends CI_Controller {
 
 	public function index()
 	{
-		$this->form_validation->set_rules('register_password', 'Password', 'required|matches[register_re_password]|md5');
-		$this->form_validation->set_rules('register_re_password', 'Password Confirmation', 'required');
-		$this->form_validation->set_rules('register_email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('login_password', 'Password', 'required|md5');
+		$this->form_validation->set_rules('login_email', 'Email', 'required|valid_email');
 
-		$email = $_POST['register_email'];
-		$password = md5($_POST['register_password']);
-		$passConfirm = md5($_POST['register_re_password']);
+		$email = $_POST['login_email'];
+		$password = md5($_POST['login_password']);
 
 		if($this->form_validation->run() == FALSE)
 		{	
@@ -23,9 +21,9 @@ class registerController extends CI_Controller {
 
 		}else
 		{
-			$this->load->model('registerModel');
+			$this->load->model('loginModel');
 
-			if($this->registerModel->register($email,$password))
+			if($this->loginModel->login($email,$password))
 			{
 				$sessionData = array(
                    		'email'     => $email,
