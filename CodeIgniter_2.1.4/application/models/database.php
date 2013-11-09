@@ -22,6 +22,15 @@ class database extends CI_Model
         return $product;
     }
 
+    function get_product_by_id($id)
+    {
+        $query = $this->db->get_where('products', array('id' =>$id));
+        $product = $query->result()[0];
+
+        return $product;
+
+    }
+
     function get_favorites($userID)
     {
         $this->db->select('name, price');

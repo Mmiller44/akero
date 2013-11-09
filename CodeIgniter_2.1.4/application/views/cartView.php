@@ -18,8 +18,8 @@
 					<div class="wishlist_product">
 						<div class="eight columns">
 							<div class="img_thumb">
-								<img src="images/products/cat-thumb.png" alt="product thumbnail">
-							</div>
+<!-- 								<img src="../../../images/products/<?=$item->name?>-thumb.png" />
+ -->							</div>
 							<p class="item_name"> <a href="#"><?php echo $item['name']; ?></a></p>
 						</div>
 						<p class="two columns center_text"> <span class="labels">size:</span>small </p>

@@ -1,6 +1,7 @@
 			<div id="main_content" class="container">
 
 			<?php foreach($items as $item): ?>
+			<?php echo form_open('CartController/add'); ?>
 
 				<section id="product_img" class="six columns">
 					<img src="../../images/products/<?=$item->name?>-large.png">
@@ -42,7 +43,10 @@
 						</div>
 						<div id="submit_options">
 							<a href="../../addWishlistController/addWishList/<?=$item->name?>" id="add_list"> add to wishlist </a>
-							<input type="submit" id="add_cart" value="add to cart"/>
+							<!-- <input type="submit" id="add_cart" value="add to cart"/> -->
+								<?php echo form_hidden('id', $item->id ); ?>
+								<?php echo form_submit('action', 'add to cart'); ?>
+								<?php echo form_close(); ?>
 						</div>
 						<div class="clear_fix"></div>
 					</form>
