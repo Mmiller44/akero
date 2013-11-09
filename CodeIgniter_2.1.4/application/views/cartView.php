@@ -25,8 +25,8 @@
 						<p class="two columns center_text"> <span class="labels">size:</span>small </p>
 						<p class="two columns center_text"> <span class="labels">price:</span> $<?php echo $item['subtotal']; ?> </p>
 						<div class="two columns center_text"> 
-							<span class="labels">quantity:</span>
-							<input type="text" name="quantity" class="quantity" required="required"><?php echo anchor('CartController/update/'.$item['rowid'],'update'); ?>
+							<span class="labels">quantity:</span></span> <?php echo $item['qty']; ?> </p>
+							<?php echo anchor('CartController/update/'.$item['rowid'],'update'); ?>
 							<!-- <a href="#">update</a> -->
 						
 						</div>
