@@ -9,6 +9,18 @@ class detailsController extends CI_Controller {
 
 	public function details($productName)
 	{
+<<<<<<< HEAD
+=======
+
+		$sessionData = array(
+
+            'productName' => $productName
+        );
+
+		$this->session->set_userdata($sessionData);
+
+
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 		if($this->session->userdata('logged_in'))
 		{
 			$this->load->model('database');

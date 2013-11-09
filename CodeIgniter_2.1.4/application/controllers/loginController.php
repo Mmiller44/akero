@@ -25,11 +25,22 @@ class loginController extends CI_Controller {
 
 			if($this->loginModel->login($email,$password))
 			{
+<<<<<<< HEAD
+=======
+				$user_result = $this->loginModel->login($email,$password)->result();
+				$user_id = $user_result[0]->userID;
+				
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 				$sessionData = array(
                    		'email'     => $email,
                   		'logged_in' => True,
                    		'cartItems' => 0,
+<<<<<<< HEAD
                    		'reviews'   => 'True'
+=======
+                   		'reviews'   => 'True',
+                   		'userID'	=> $user_id
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
                );
 
 				$this->session->set_userdata($sessionData);

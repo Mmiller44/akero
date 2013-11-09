@@ -11,6 +11,7 @@
 						<div class="clear_fix"></div>
 					</div> <!-- end columns -->
 
+<<<<<<< HEAD
 					<div class="wishlist_product">
 						<div class="eight columns">
 							<div class="img_thumb">
@@ -20,11 +21,29 @@
 						</div>
 						<p class="two columns center_text"> <span class="labels">size:</span>small </p>
 						<p class="two columns center_text"> <span class="labels">price:</span> $20.00 </p>
+=======
+			<?php foreach($items as $item): ?>
+
+					<div class="wishlist_product">
+						<div class="eight columns">
+							<div class="img_thumb">
+								<img src="../../images/products/<?=$item->name?>-thumb.png" alt="product thumbnail">
+							</div>
+							<p class="item_name"><a href="../../detailsController/details/<?=$item->name?>"><?=$item->name?></a> </p>
+						</div>
+						<p class="two columns center_text"> <span class="labels">size:</span>Any </p>
+						<p class="two columns center_text"> <span class="labels">price:</span>$<?=$item->price?>.00</p>
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 						<p class="two columns center_text"><a href="#">add to cart</a></p>
 						<p class="two columns center_text"><a href="#">delete</a></p>
 						<p class="clear_fix"></p>
 					</div> <!-- end wishlist_product -->
 
+<<<<<<< HEAD
+=======
+			<?php endforeach; ?>
+
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 				</section> <!-- end wishlist -->
 
 			</div> <!-- end main content -->

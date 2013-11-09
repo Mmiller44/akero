@@ -8,10 +8,18 @@ class wishlistController extends CI_Controller {
 		if($this->session->userdata('logged_in'))
 		{
 			$this->load->model('database');
+<<<<<<< HEAD
 			$products['items'] = $this->database->get_entries();
 			$userEmail['email'] = $this->session->userdata('email');
 			$this->load->view('adminheader', $userEmail);
 			$this->load->view('wishlistView', $products);
+=======
+			$userID = $this->session->userdata('userID');
+			$favorites['items'] = $this->database->get_favorites($userID);
+			$userEmail['email'] = $this->session->userdata('email');
+			$this->load->view('adminheader', $userEmail);
+			$this->load->view('wishlistView', $favorites);
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 			$this->load->view('footer');
 
 		}else
@@ -25,4 +33,8 @@ class wishlistController extends CI_Controller {
 	}
 }
 
+<<<<<<< HEAD
 /* End of file products.php */
+=======
+/* End of file wishlistController.php */
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f

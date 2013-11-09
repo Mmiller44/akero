@@ -41,7 +41,11 @@
 							</label>
 						</div>
 						<div id="submit_options">
+<<<<<<< HEAD
 							<a href="#" id="add_list"> add to wishlist </a>
+=======
+							<a href="../../addWishlistController/addWishList/<?=$item->name?>" id="add_list"> add to wishlist </a>
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 							<input type="submit" id="add_cart" value="add to cart"/>
 						</div>
 						<div class="clear_fix"></div>

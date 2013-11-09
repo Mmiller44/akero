@@ -23,6 +23,10 @@ class ProductsController extends CI_Controller {
 			$this->load->view('footer');
 		}
 	}
+<<<<<<< HEAD
 }
 
 /* End of file products.php */
+=======
+}
+>>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
