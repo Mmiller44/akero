@@ -1,74 +1,144 @@
-<?php
-class CartController extends CI_Controller {
-	
-	function index() {
-		
-		$this->load->model('products');
-		
-		$data['products'] = $this->products->get_all();
-		
-		$this->load->view('products', $data);
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class cartController extends CI_Controller {
+
+	public function index()
+	{
+		//$data['products'] = $this->products->get_all();
+
+		if($this->session->userdata('logged_in'))
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$userEmail['email'] = $this->session->userdata('email');
+			$this->load->view('adminheader', $userEmail);
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
+
+		}else
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$this->load->view('header');
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
+		}
 	}
-	
+
 	function add() {
-		
-		$this->load->model('products');
-		
-		$product = $this->products->get($this->input->post('id'));
+		$counter = $this->session->userdata('cartItems');
+		$sessionData = array(
+                   	'cartItems' => $counter + 1,
+             );
 
-		// set a default quantity
-		$quantity = 1;
+        $this->load->model('database');
+        
+        $product = $this->database->get_product_by_id($this->input->post('id'));
 
-		foreach ($this->cart->contents() as $item) {
+       // set a default quantity
+        $quantity = 1;
 
-			if($item['id'] == $this->input->post('id'))
-			{
-				$quantity = $item['qty'] + 1;
-			}
+        foreach ($this->cart->contents() as $item) {
 
+            if($item['id'] == $this->input->post('id'))
+            {
+                $quantity = $item['qty'] + 1;
+            }
+
+        }
+
+        $insert = array(
+            'id' => $this->input->post('id'),
+            'qty' => $quantity,
+            'price' => $product->price,
+            'name' => $product->name
+        );
+       
+        $this->cart->insert($insert);
+        // $this->load->helper('url');  
+        // redirect('detailsController/details/<?=$this->session->userdata("productName")
+        $products['items'] = $this->database->get_specific_product($product->name);
+		$userEmail['email'] = $this->session->userdata('email');
+		$this->load->view('adminheader', $userEmail);
+		$this->load->view('product-details', $products);
+		$this->load->view('footer');
+        
+    }
+
+    function remove($rowid) {
+
+		$cart = $this->cart->contents();
+
+		$qty = $cart[$rowid]['qty'] - 1;
+
+        $this->cart->update(array(
+            'rowid' => $rowid,
+            'qty' => $qty
+        ));
+
+        if($qty >= 0){
+        	$qty = 0;
+        }
+        
+        // $this->load->helper('url');  
+        // redirect('product-details');
+        if($this->session->userdata('logged_in'))
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$userEmail['email'] = $this->session->userdata('email');
+			$this->load->view('adminheader', $userEmail);
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
+
+		}else
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$this->load->view('header');
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
 		}
+        
+    }
 
-		$insert = array(
-			'id' => $this->input->post('id'),
-			'qty' => $quantity,
-			'price' => $product->price,
-			'name' => $product->product
-		);
-		// if ($product->option_name) {
-		// 	$insert['options'] = array(
-		// 		$product->option_name => $product->option_values[$this->input->post($product->option_name)]
-		// 	);
-		// }
-		
-		$this->cart->insert($insert);
-		$this->load->helper('url');  
-		redirect('productsController');
-		
-	}
-	
-	function remove($rowid) {
+    function update($rowid) {
 
-		$quantity = 1;
+		$cart = $this->cart->contents();
 
-		foreach ($this->cart->contents() as $item) {
+		$qty = $cart[$rowid]['qty'] + 1;
 
-			if($item['rowid'] == $this->input->post('rowid'))
-			{
-				$quantity = $item['qty'] - 1;
-			}
+        $this->cart->update(array(
+            'rowid' => $rowid,
+            'qty' => $qty
+        ));
 
+        // if($qty >= 0){
+        // 	$qty = 0;
+        // }
+        
+        // $this->load->helper('url');  
+        // redirect('product-details');
+        if($this->session->userdata('logged_in'))
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$userEmail['email'] = $this->session->userdata('email');
+			$this->load->view('adminheader', $userEmail);
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
+
+		}else
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$this->load->view('header');
+			$this->load->view('cartView', $products);
+			$this->load->view('footer');
 		}
-		
-		
-		$this->cart->update(array(
-			'rowid' => $rowid,
-			'qty' => $quantity - 1
-		));
+        
+    }
 
-		
-		$this->load->helper('url');  
-		redirect('productsController');
-		
-	}
-	
 }
+
+/* End of file products.php */

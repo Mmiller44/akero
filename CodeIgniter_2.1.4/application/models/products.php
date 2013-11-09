@@ -2,24 +2,25 @@
 class Products extends CI_Model {
 	
 	function get_all() {
+
+		$this->load->model('database');
+		$results = $this->db->get('products')->result();
 		
-		$results = $this->db->get('items')->result();
-		
-	// 	foreach ($results as &$result) {
+		// foreach ($results as &$result) {
 			
-	// 		if ($result->option_values) {
-	// 			$result->option_values = explode(',',$result->option_values);
-	// 		}
+		// 	if ($result->option_values) {
+		// 		$result->option_values = explode(',',$result->option_values);
+		// 	}
 			
-	// 	}
+		// }
 		
-	// 	return $results;
+		// return $results;
 		
 	 }
 	
 	function get($id) {
 		
-		$results = $this->db->get_where('items', array('productId' => $id))->result();
+		$results = $this->db->get_where('products', array('productId' => $id))->result();
 		$result = $results[0];
 		
 		// if ($result->option_values) {

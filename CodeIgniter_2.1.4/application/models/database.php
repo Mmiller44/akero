@@ -27,7 +27,6 @@ class database extends CI_Model
         $this->db->select('name, price');
         $this->db->join('products', 'products.productID = favorites.productID');
         $query = $this->db->get_where('favorites', array('userID' => $userID));
-        // echo($query->result()[0]->name);
         $favorites = $query->result();
         return $favorites;
     }
