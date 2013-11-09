@@ -13,6 +13,7 @@ class loginModel extends CI_Model
         $data = array('email' => $email,'password' => $password);
 
         $this->db->like('email', $email);
+        $this->db->like('password', $password);
         $this->db->from('users');
 
         if($this->db->count_all_results() > 0)

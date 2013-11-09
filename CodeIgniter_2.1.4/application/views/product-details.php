@@ -42,7 +42,7 @@
 							</label>
 						</div>
 						<div id="submit_options">
-							<a href="../../addWishlistController/addWishList/<?=$item->name?>" id="add_list"> add to wishlist </a>
+								<a href="../../addWishlistController/addWishList/<?=$item->name?>" class=<?=$this->session->userdata('reviews')?> id="add_list"> add to wishlist </a>
 							<!-- <input type="submit" id="add_cart" value="add to cart"/> -->
 								<?php echo form_hidden('id', $item->id ); ?>
 								<?php echo form_submit('action', 'add to cart'); ?>
@@ -63,25 +63,24 @@
 				<section id="product_reviews" class="ten columns">
 					<div class=<?=$this->session->userdata('reviews')?>>
 						<h4> Tell us what you think! </h4>
-						<form id="form_review">
+
+			<?php echo form_open('postReviewController'); ?>
+
 							<textarea name="review_input" id="review_input" required="required" maxlength="300" rows="5"></textarea>
 							<input type="submit" name="review_submit" id="review_submit" value="submit">
 							<div class="clear_fix"></div>
 						</form>
 					</div>
 
+			<?php foreach($reviews as $rev): ?>
+
 					<div class="review">
-						<span class="user"> username </span>
-						<p> This is a sample of a review for a product. So all reviews will look like this. </p>
+						<span class="user"><?=$rev->email?></span>
+						<p><?=$rev->reviewText?></p>
 					</div>
-					<div class="review">
-						<span class="user"> username </span>
-						<p> This is a sample of a review for a product. So all reviews will look like this. </p>
-					</div>
-					<div class="review review-last">
-						<span class="user"> username </span>
-						<p> This is a sample of a review for a product. So all reviews will look like this. </p>
-					</div>
+
+			<?php endforeach; ?>
+
 				</section> <!-- end product_reviews -->
 
 				<section id="ad_two" class="six columns">
