@@ -9,9 +9,14 @@ class detailsController extends CI_Controller {
 
 	public function details($productName)
 	{
+		$this->db->select('id');
+		$query = $this->db->get_where('products', array('name' => $productName));
+		$id = $query->result()[0]->id;
+
 		$sessionData = array(
 
-            'productName' => $productName
+            'productName' => $productName,
+            'productID'   => $id
         );
 
 		$this->session->set_userdata($sessionData);
@@ -19,10 +24,11 @@ class detailsController extends CI_Controller {
 		if($this->session->userdata('logged_in'))
 		{
 			$this->load->model('database');
-			$products['items'] = $this->database->get_specific_product($productName);
+			$data['items'] = $this->database->get_specific_product($productName);
+			$data['reviews'] = $this->database->get_reviews($this->session->userdata('productID'));
 			$userEmail['email'] = $this->session->userdata('email');
 			$this->load->view('adminheader', $userEmail);
-			$this->load->view('product-details', $products);
+			$this->load->view('product-details', $data);
 			$this->load->view('footer');
 
 		}else

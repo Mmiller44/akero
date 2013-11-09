@@ -17,14 +17,13 @@ class database extends CI_Model
     function get_specific_product($productName)
     {
         $query = $this->db->get_where('products', array('name' => $productName));
-        // echo($query->result()[0]->name);
         $product = $query->result();
         return $product;
     }
 
     function get_product_by_id($id)
     {
-        $query = $this->db->get_where('products', array('id' =>$id));
+        $query = $this->db->get_where('products', array('id' => $id));
         $product = $query->result()[0];
 
         return $product;
@@ -34,10 +33,17 @@ class database extends CI_Model
     function get_favorites($userID)
     {
         $this->db->select('name, price');
-        $this->db->join('products', 'products.productID = favorites.productID');
+        $this->db->join('products', 'products.id = favorites.productID');
         $query = $this->db->get_where('favorites', array('userID' => $userID));
         $favorites = $query->result();
         return $favorites;
+    }
+
+    function get_reviews($productID)
+    {
+        $this->db->join('users', 'users.userID = reviews.userID');
+        $query = $this->db->get_where('reviews', array('productID' => $productID));
+        return $query->result();
     }
 
 }
