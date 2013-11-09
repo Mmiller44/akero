@@ -22,8 +22,6 @@ class database extends CI_Model
         return $product;
     }
 
-<<<<<<< HEAD
-=======
     function get_favorites($userID)
     {
         $this->db->select('name, price');
@@ -34,7 +32,6 @@ class database extends CI_Model
         return $favorites;
     }
 
->>>>>>> 8f72297c2547c815a8f5b34760ae06123b39624f
 }
 
 ?>
