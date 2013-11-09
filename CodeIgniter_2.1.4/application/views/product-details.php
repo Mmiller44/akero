@@ -42,7 +42,9 @@
 							</label>
 						</div>
 						<div id="submit_options">
-							<a href="../../addWishlistController/addWishList/<?=$item->name?>" id="add_list"> add to wishlist </a>
+							<div class=<?=$this->session->userdata('reviews')?>>
+								<a href="../../addWishlistController/addWishList/<?=$item->name?>" id="add_list"> add to wishlist </a>
+							</div>
 							<!-- <input type="submit" id="add_cart" value="add to cart"/> -->
 								<?php echo form_hidden('id', $item->id ); ?>
 								<?php echo form_submit('action', 'add to cart'); ?>

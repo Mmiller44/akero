@@ -22,6 +22,7 @@ class Landing extends CI_Controller {
 		}else
 		{
 			$sessionData = array(
+				
       			'reviews' => 'False'
         	);
 

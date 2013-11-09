@@ -6,11 +6,14 @@ class logoutController extends CI_Controller {
 	{
 		$sessionData = array(
    			'email'     => '',
-  			'logged_in' => False,
-   			'cartItems' => 0
+  			'logged_in' => '',
+  			'reviews' 	=> '',
+   			'cartItems' => '',
+   			'userID'	=> ''
        	);
 
-		$this->session->set_userdata($sessionData);
+		$this->session->unset_userdata($sessionData);
+		$this->session->sess_destroy();
 
 		$this->load->model('database');
 		$products['items'] = $this->database->get_entries();

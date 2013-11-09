@@ -31,6 +31,14 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 	padding: 0;
 }
 
+.True{
+
+}
+
+.False {
+	display: none;
+}
+
 body{
 	font: 14px 'Helvetica Neue', sans-serif;
 }
