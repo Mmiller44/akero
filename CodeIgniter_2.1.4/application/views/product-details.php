@@ -13,7 +13,7 @@
 					<form id="form_add">
 						<div class="size_option">
 							<label class="radio"> 
-							<input type="radio" name="options[size]" value="XS" checked="checked" <?php echo set_radio('size', 'XS', TRUE); ?> /> 
+							<input type="radio" name="size" value="XS" checked="checked" /> 
 								X-Small
 							</label>	
 						</div>

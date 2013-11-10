@@ -40,7 +40,7 @@ class cartController extends CI_Controller {
 
         foreach ($this->cart->contents() as $item) {
 
-            if($item['id'] == $this->input->post('id'))
+            if($item['id'] == $this->input->post('id') .$this->input->post('size'))
             {
                 $quantity = $item['qty'] + 1;
             }
@@ -48,10 +48,11 @@ class cartController extends CI_Controller {
         }
 
         $insert = array(
-            'id' => $this->input->post('id'),
+            'id' => $this->input->post('id') .$this->input->post('size'),
             'qty' => $quantity,
             'price' => $product->price,
-            'name' => $product->name
+            'name' => $product->name,
+            'size' => $this->input->post('size')
         );
        
         $this->cart->insert($insert);
