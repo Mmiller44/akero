@@ -11,7 +11,7 @@ class wishlistmodel extends CI_Model
     function addToWishList($productName)
     {
         $this->db->select('id');
-<<<<<<< HEAD
+
         $query = $this->db->get_where('products', array('name' => $productName));
         $result = $query -> result();
 
@@ -38,10 +38,6 @@ class wishlistmodel extends CI_Model
         $result = $this->db->get_where('products', array('name' => $productName));
         $product = $result->result();
         $productID = $product[0]->id;
-=======
-        $result = $this->db->get_where('products', array('name' => $productName));
-        $productID = $result[0]->id;
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
 
         $data = array('userID' => $this->session->userdata('userID'),'productID' => $productID);
 
@@ -58,11 +54,7 @@ class wishlistmodel extends CI_Model
         {
             return false;
         }
-        
-<<<<<<< HEAD
-=======
-        return true;
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
+
     }
 
 }
