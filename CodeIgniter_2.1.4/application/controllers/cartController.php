@@ -59,19 +59,11 @@ class cartController extends CI_Controller {
         $size = $this->input->post('size');
 
         $insert = array(
-<<<<<<< HEAD
             'id' => $finalID,
             'qty' => $quantity,
             'price' => $productPrice,
             'name' => $name,
             'size' => $size
-=======
-            'id' => $this->input->post('id') .$this->input->post('size'),
-            'qty' => $quantity,
-            'price' => $product->price,
-            'name' => $product->name,
-            'size' => $this->input->post('size')
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
         );
        
         $this->cart->insert($insert);
@@ -170,8 +162,6 @@ class cartController extends CI_Controller {
 		}
         
     }
-<<<<<<< HEAD
-=======
 
     function addtoCart($product_id) {
 		$counter = $this->session->userdata('cartItems');
@@ -232,7 +222,6 @@ class cartController extends CI_Controller {
         
     }
 
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
 }
 
 /* End of file products.php */
