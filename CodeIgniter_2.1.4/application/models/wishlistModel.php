@@ -1,6 +1,6 @@
 <?php
 
-class wishlistModel extends CI_Model
+class wishlistmodel extends CI_Model
 {
     public function __construct()
     {
@@ -11,7 +11,9 @@ class wishlistModel extends CI_Model
     function addToWishList($productName)
     {
         $this->db->select('id');
-        $productID = $this->db->get_where('products', array('name' => $productName))->result()[0]->id;
+        $result = $this->db->get_where('products', array('name' => $productName));
+        $productID = $result[0]->id;
+
         $data = array('userID' => $this->session->userdata('userID'),'productID' => $productID);
 
         $this->db->like('id', $productID);
@@ -26,6 +28,7 @@ class wishlistModel extends CI_Model
         {
             $this->db->insert('favorites', $data);
         }
+        
         return true;
     }
 
