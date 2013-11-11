@@ -23,24 +23,15 @@
 							<p class="item_name"> <a href="#"><?php echo $item['name']; ?></a></p>
 						</div>
 						<p class="two columns center_text"> <span class="labels">size:</span><?php echo $item['size']; ?></p>
-<<<<<<< HEAD
-						<p class="two columns center_text"> <span class="labels">price:</span> $<?php echo $item['subtotal']; ?>.00 </p>
-=======
 						<p class="two columns center_text"> <span class="labels">price:</span> $<?php echo $item['subtotal']; ?> </p>
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
 						<div class="two columns center_text"> 
 							<span class="labels">quantity:</span></span> <?php echo $item['qty']; ?> </p>
 							
 							<!-- <a href="#">update</a> -->
 						
 						</div>
-<<<<<<< HEAD
-						<p class="two columns center_text"><?php echo anchor('../../cartcontroller/update/'.$item['rowid'],'add item'); ?>
-							<br><?php echo anchor('../../cartcontroller/remove/'.$item['rowid'],'delete item'); ?></a></p>
-=======
 						<p class="two columns center_text"><?php echo anchor('CartController/update/'.$item['rowid'],'add item'); ?>
-							<br><?php echo anchor('CartController/remove/'.$item['rowid'],'delete item'); ?></a></p>
->>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
+							<br><?php echo anchor('cartcontroller/remove/'.$item['rowid'],'delete item'); ?></a></p>
 						<p class="clear_fix"></p>
 					</div> <!-- end wishlist_product -->
 
