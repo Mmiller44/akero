@@ -3,7 +3,7 @@
 					<ul id="footer_nav">
 						<li ><a href="/">home </a></li>
 						<li class="nav_divider"> / </li>
-						<li><a href=<?=base_url("productsController");?>>purchase</a></li>
+						<li><a href=<?=base_url("productscontroller");?>>purchase</a></li>
 						<li class="nav_divider"> / </li>
 						<li><a href="/">custom </a></li>
 						<li class="nav_divider"> / </li>

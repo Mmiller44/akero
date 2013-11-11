@@ -21,7 +21,7 @@
 			<section id="top_nav">
 				<div class="container">
 					<p>
-						<?=$email?> | <a href=<?=base_url("wishlistController");?>>wishlist</a> | <a href=<?=base_url("logoutController");?>>logout</a>
+						<?=$email?> | <a href=<?=base_url("wishlistcontroller");?>>wishlist</a> | <a href=<?=base_url("logoutcontroller");?>>logout</a>
 						<span class="cart_info"> <a href=<?=base_url("cartcontroller");?>>cart</a> ( <?=$this->session->userdata('cartItems');?> ) | <a href="#">checkout</a> </span>
 					</p>
 				</div>
@@ -34,7 +34,7 @@
 						<ul id="header_nav">
 							<li><a href="/">home </a></li>
 							<li class="nav_divider"> / </li>
-							<li><a href=<?=base_url("productsController");?>>purchase </a></li>
+							<li><a href=<?=base_url("productscontroller");?>>purchase </a></li>
 							<li class="nav_divider"> / </li>
 							<li><a href="/">custom </a></li>
 							<li class="nav_divider"> / </li>

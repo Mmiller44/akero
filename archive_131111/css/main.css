@@ -1,0 +1,538 @@
+/* ---------------------------------------------------------------------------------------------------
+
+-----Info
+
+© 2013 Akëro Clothing Co
+HTML & CSS by: Nicole Aitchison
+Full Sail ASL 1311
+
+-----Color Swatch
+
+-----Sections
+
+∆ General
+∆ Header
+∆ Landing
+∆ Product Page
+∆ Wishlist/Checkout Page
+∆ Footer
+∆ Jquery Banner
+∆ Media Queries
+∆ Fixes
+
+----------------------------------------------------------------------------------------------------*/
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ General
+---------------------------------------------------------------------------------------------------*/
+
+html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,figcaption {
+	margin: 0;
+	padding: 0;
+}
+
+.True{
+
+}
+
+.False {
+	display: none;
+}
+
+body{
+	font: 14px 'Helvetica Neue', sans-serif;
+}
+
+h2{
+	font: 20px Georgia, serif;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	padding: 18px 0;
+}
+
+h3{
+	font: 16px Georgia, serif;
+	text-align: center;
+	border-top: 1px solid #000;
+	padding-top: 10px;
+}
+
+h4{
+	font: 14px Georgia, serif;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+ul{
+	list-style-type: none;
+}
+
+li{
+	float: left;
+}
+
+fieldset{
+	border: none;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.product{
+	text-align: center;
+}
+
+section#products{
+	margin-bottom: 20px;
+}
+
+.product:hover{
+	opacity: .6;
+}
+
+#main_content{
+	min-height: 590px;
+}
+
+input{
+	border-radius: 3px;
+	border: none;
+	padding: 4px;
+	background-color: #eee;
+}
+
+input[type=submit], button#checkout_btn{
+	border-radius: 3px;
+	padding: 4px 8px;
+	background-color: #555;
+	border: 1px solid #000;
+}
+
+input[type=submit]:hover, button#checkout_btn{
+	background-color: #424242;
+}
+
+.divider{ 
+	width: 100%; 
+	height: 1px;
+	background-color: #000;
+	margin: 20px 0;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Header
+---------------------------------------------------------------------------------------------------*/
+
+
+nav.container{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #000;
+}
+
+#top_nav{
+	padding: 8px 0;
+	background: #000;
+	color: #f3f3f3;
+	font-size: 12px;
+}
+
+#top_nav a{
+	color: #f3f3f3;
+	text-decoration: none;
+}
+
+#top_nav a:hover{
+	text-decoration: underline;
+}
+
+#top_nav p{
+	float: right;
+}
+
+.cart_info{
+	margin-left: 15px;
+}
+
+#login_form, #register_form{
+	background-color: #242424;
+	padding: 10px 0;
+	display: none;
+}
+
+#login_form form, #register_form form{
+	float: right;
+}
+
+#login_form form input, #register_form form input{
+	margin-right: 5px;
+}
+
+#login_form form input:last-child, #register_form form input:last-child{
+	margin-right: 0;
+}
+
+header{
+	margin: 30px 0 0;
+}
+
+#logo{
+	float: left;
+	display: block;
+	width: 175px;
+}
+
+#header_nav{
+	float: left;
+	font: 20px Georgia, serif;
+	margin: 17px 0 0 20px;
+}
+
+#header_nav li{
+	margin: 0 8px;
+}
+
+#nav_clear_fix{
+	display: none;
+}
+
+#icons{
+	float: right;
+	margin-top: 10px;
+}
+
+#icons li{
+	margin-left: 8px;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Landing
+---------------------------------------------------------------------------------------------------*/
+
+#banner{
+	padding: 20px 0;
+	border-bottom: 1px solid #000;
+	width: 100%;
+
+}
+
+#banner img {
+    max-width: 100%;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Product Page
+---------------------------------------------------------------------------------------------------*/
+
+#product_img{
+	text-align: center;
+}
+
+#product_details p, #form_add{
+	margin: 20px 0;
+	width: 100%
+}
+
+label.radio{
+	width: 100%;
+	clear: both;
+}
+
+.size_option{
+/*	width: 85%;
+	margin: 0 auto;*/
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.size_option:first-child{
+	border-top: 1px solid #ccc;
+}
+
+.size_option:last-child{
+	margin-bottom: 20px;
+}
+
+.size_option input[type=radio]{
+	margin-right: 12px;
+}
+
+#ad{
+	margin-bottom: 20px;
+}
+
+#ad_two{
+	display: none;
+}
+
+#form_review{
+	padding-bottom: 20px;
+	border-bottom: 1px solid #000;
+}
+
+textarea#review_input{
+	min-width: 580px;
+	max-width:  580px;
+}
+
+#review_submit{
+	float: right;
+	margin-top: 10px;
+}
+
+.review{
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.user{
+	font: 14px Georgia, serif;
+	font-weight: bold;
+}
+
+.review p{
+	padding-top: 5px;
+}
+
+.review-last{
+	border-bottom: 0px solid #ccc;
+}
+
+#submit_options{
+	float: right;
+	margin-top: 20px;
+}
+
+#add_list{
+	margin-right: 10px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Wishlist/Checkout Page
+---------------------------------------------------------------------------------------------------*/
+
+#columns{
+	border-bottom: 1px solid #000;
+	margin-top: 20px;
+	padding-bottom: 10px;
+	font: 14px Georgia, serif;
+	font-weight: bold;
+}
+
+.img_thumb{
+	width: 120px;
+	float: left;
+	padding-right: 10px;
+}
+
+.wishlist_product{
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+.wishlist_product:last-child{
+	border-bottom: 0px solid #ccc;
+	padding: 20px 0;
+}
+
+.center_text{
+	text-align: center;
+}
+
+input.quantity{
+	padding: 6px;
+	border: 1px solid #000;
+	width: 88px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.labels{
+	display: none;
+}
+
+#totals{
+	float: right;
+	margin: 0 0 20px;
+
+}
+
+.subtotal, .shipping, .tax, .total{
+	font: 16px Georgia, serif;
+	width: 100px;
+	padding-right: 10px;	
+	text-align: right;
+	display: inline-block;
+}
+
+.total, .total_price{
+	font: bold 18px Georgia, serif;
+}
+
+#checkout_btn{
+	margin-left: 25px;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Footer
+---------------------------------------------------------------------------------------------------*/
+
+
+footer.container{
+	border-top: 1px solid #000;
+	padding: 30px 0;
+	text-align: center;
+}
+
+ul#footer_nav{
+	float: left;
+	font: 16px Georgia, serif;
+	margin: 0 auto;
+}
+
+#footer_nav li{
+	margin: 0 8px;
+}
+
+.center_footer_nav{
+	margin: 0 auto;
+	width: 355px;
+}
+
+
+footer p{
+	margin-top: 20px;
+	color: #a5a5a5;
+	font-size: 14px;
+}
+
+footer p:last-child{
+	margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Jquery Banner
+---------------------------------------------------------------------------------------------------*/
+
+
+#jqb_object img{ 
+	border: none;
+}
+
+#jqb_object { 
+	position:relative;
+	width:100%; 
+	height:436px; 
+	overflow:hidden;
+}
+
+.jpb_display_none {
+	display:none;
+}
+
+#jqb_object .jqb_slide{
+	position:absolute;
+	width:100%; 
+	height:436px; 
+	font-family: Arial, Verdana, Sans-Serif;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: -1px;
+	text-align: left;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Media Queries
+---------------------------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+	#jqb_object, #jqb_object .jqb_slide{ height: 349px; }
+	textarea#review_input{ min-width: 460px; max-width: 460px; }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+	#top_nav p{ width: 100%; float: none; text-align: center; }
+	.cart_info{ display: block; margin-top: 8px; }
+	
+	#logo { margin: 0 auto; float: none; }
+	#center_header_nav{ width: 415px; margin: 0 auto; }
+	#header_nav{ margin: 18px 0 0 0; }
+	#nav_clear_fix{ display: block; }
+
+	#center_icons{ margin: 0 auto; width: 168px; }
+	#icons { margin-top: 20px; float: none;}
+	#icons li:first-child{ margin-left: 0px;}
+	#icons li{ margin-left: 20px;}
+
+	#jqb_object, #jqb_object .jqb_slide{ height: 191px; }
+
+	textarea#review_input{ min-width: 420px; max-width: 420px; }
+
+	#login_form form, #register_form form{ float: none; text-align: center;}
+	#login_form form input, #register_form form input{ margin-top: 10px;}
+	input.login_input{ width: 100%; }
+	#login_form input, #register_form input{ padding: 8px; }
+
+	.review-last{ border-bottom: 1px solid #000; }
+	#ad_two{ display: inline; margin: 20px 0;}
+	#ad{ display: none;}
+
+	#register_form form input[type=submit]{ padding: 8px 30px; }
+
+	#columns{ display: none; }
+	.labels{ display: inline; font: bold 14px Georgia, serif; margin-right: 6px; }
+	#wishlist_product p{ padding-bottom: 10px; text-align: center;}
+	p.item_name{text-align: center; padding: 10px 0; font: bold 16px Georgia, serif;}
+	.img_thumb{ float: none; margin: 0 auto; padding: 0;}
+	input.quantity{ margin: 8px; }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+	#top_nav{ font-size: 14px; }
+
+	#center_header_nav, .center_footer_nav{ margin: 0 auto; width: 100%;}
+	ul#header_nav, ul#footer_nav{ width: 100%; }
+	#header_nav li, #footer_nav li{ float: none; width: 100%; margin: 10px 0; text-align: center;}
+	#header_nav li:first-child, #footer_nav li:first-child{ margin: 0; }
+	.nav_divider{ display: none; }
+
+	#center_icons{ margin: 0 auto; width: 213px; }
+	#icons { margin-top: 20px; float: none; }
+	#icons li:first-child{ margin-left: 0px; }
+	#icons li{ margin-left: 35px;} 
+
+	#jqb_object, #jqb_object .jqb_slide{ height: 136px; }
+
+	textarea#review_input{ min-width: 300px; max-width: 300px; }
+
+}
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Fixes
+---------------------------------------------------------------------------------------------------*/
+
+img { width: 100%; }
+a img { border: 0; }
+
+.clear_fix { clear: both; }
+
+
+
+
+
+
+

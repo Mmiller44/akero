@@ -8,7 +8,7 @@
 	<nav>
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="productsController">Products</a></li>
+			<li><a href="productscontroller">Products</a></li>
 			<li><a href="">Custom</a></li>
 			<li><a href="">Cart</a></li>
 			<li><a href="form">Register</a></li>
@@ -25,13 +25,13 @@
 
 <?php foreach($items as $item): ?>
 
-	<?php echo form_open('CartController/add'); ?>
+	<?php echo form_open('cartcontroller/add'); ?>
 
 	<h2><?=$item->product?></h2>
 	<p>Price: $<?=$item->price?>.00</p>
 	<p>Description: <?=$item->description?></p>
 	<p>Color: <?=$item->color?></p>
-	<p><a href="favoritesController">Add to Favorites</a></p>
+	<p><a href="favoritescontroller">Add to Favorites</a></p>
 
 		<?php echo form_hidden('id', $item->productId); ?>
 		<?php echo form_submit('action', 'Add to Cart'); ?>
@@ -59,7 +59,7 @@
 				<td>$<?php echo $item['subtotal']; ?></td>
 				<td class="remove">
 					<?php $this->load->helper('url');  ?>
-					<?php echo anchor('CartController/remove/'.$item['rowid'],'X'); ?>
+					<?php echo anchor('cartcontroller/remove/'.$item['rowid'],'X'); ?>
 				</td>
 			</tr>
 		<!--<?php //print_r($cart); ?>-->

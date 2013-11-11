@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class logoutController extends CI_Controller {
+class logoutcontroller extends CI_Controller {
 
 	public function index()
 	{

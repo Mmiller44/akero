@@ -31,7 +31,7 @@
 				<div class="container">
 					
 			<?php echo validation_errors(); ?>
-			<?php echo form_open(base_url('loginController')); ?>
+			<?php echo form_open(base_url('logincontroller')); ?>
 
 						<input type="email" placeholder="email address" name="login_email" class="login_input" required="required">
 						<input type="password" placeholder="password" name="login_password" class="login_input" required="required">
@@ -39,7 +39,7 @@
 						<input type="submit" name="login" value="login">
 					</form>
 						<div id="nav_clear_fix" class="clear_fix"></div>
-			<?php echo form_open(base_url('madservController')); ?>
+			<?php echo form_open(base_url('madservcontroller')); ?>
 
 						<input type="submit" name="login_other" value="MadServ login">
 					</form>
@@ -50,7 +50,7 @@
 				<div class="container">
 
 			<?php echo validation_errors(); ?>
-			<?php echo form_open(base_url('registerController')); ?>
+			<?php echo form_open(base_url('registercontroller')); ?>
 
 						<input type="email" placeholder="email address" name="register_email" class="login_input" required="required">
 						<input type="password" placeholder="password" name="register_password" class="login_input" required="required">
@@ -68,7 +68,7 @@
 						<ul id="header_nav">
 							<li><a href="/">home </a></li>
 							<li class="nav_divider"> / </li>
-							<li><a href=<?=base_url("productsController");?>>purchase </a></li>
+							<li><a href=<?=base_url("productscontroller");?>>purchase </a></li>
 							<li class="nav_divider"> / </li>
 							<li><a href="/">custom </a></li>
 							<li class="nav_divider"> / </li>
