@@ -59,11 +59,19 @@ class cartController extends CI_Controller {
         $size = $this->input->post('size');
 
         $insert = array(
+<<<<<<< HEAD
             'id' => $finalID,
             'qty' => $quantity,
             'price' => $productPrice,
             'name' => $name,
             'size' => $size
+=======
+            'id' => $this->input->post('id') .$this->input->post('size'),
+            'qty' => $quantity,
+            'price' => $product->price,
+            'name' => $product->name,
+            'size' => $this->input->post('size')
+>>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
         );
        
         $this->cart->insert($insert);
@@ -162,6 +170,69 @@ class cartController extends CI_Controller {
 		}
         
     }
+<<<<<<< HEAD
+=======
+
+    function addtoCart($product_id) {
+		$counter = $this->session->userdata('cartItems');
+		$sessionData = array(
+                   	'cartItems' => $counter + 1,
+             );
+
+        $this->load->model('database');
+        
+        $product = $this->database->get_favorites($this->input->post('userID'));
+       	$products = $this->database->get_product_for_wishlist($product_id);
+
+       // set a default quantity
+        $quantity = 1;
+
+        foreach ($this->cart->contents() as $item) {
+
+            if($item['id'] == $this->input->post('id'))
+            {
+                $quantity = $item['qty'] + 1;
+            }
+
+        }
+
+        var_dump($product);
+        exit;
+
+        var_dump($products);
+        exit;
+
+        $insert = array(
+            'id' => $this->input->post('productID'),
+            'qty' => $quantity,
+            'price' => $products->price,
+            'name' => $products->name
+        );
+       
+        $this->cart->insert($insert);
+     
+		if($this->session->userdata('logged_in'))
+		{
+			$this->load->model('database');
+			$userID = $this->session->userdata('userID');
+			$favorites['items'] = $this->database->get_favorites($userID);
+			$userEmail['email'] = $this->session->userdata('email');
+			$this->load->view('adminheader', $userEmail);
+			$this->load->view('wishlistView', $favorites);
+			$this->load->view('footer');
+
+		}else
+		{
+			$this->load->model('database');
+			$products['items'] = $this->database->get_entries();
+			$this->load->view('header');
+			$this->load->view('landing', $products);
+			$this->load->view('footer');
+		}
+        
+    }
+
+>>>>>>> 351206e0aa6571e202889b56611d3dec746fd618
 }
 
 /* End of file products.php */
