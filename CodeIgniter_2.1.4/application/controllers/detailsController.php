@@ -42,7 +42,7 @@ class detailsController extends CI_Controller {
 			$this->load->view('footer');
 			// echo $products['items'];
 		}
-
+ 
 	}
 }
 
