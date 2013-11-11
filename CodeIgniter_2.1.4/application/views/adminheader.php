@@ -22,7 +22,7 @@
 				<div class="container">
 					<p>
 						<?=$email?> | <a href=<?=base_url("wishlistController");?>>wishlist</a> | <a href=<?=base_url("logoutController");?>>logout</a>
-						<span class="cart_info"> <a href=<?=base_url("cartController");?>>cart</a> ( <?=$this->session->userdata('cartItems');?> ) | <a href="#">checkout</a> </span>
+						<span class="cart_info"> <a href=<?=base_url("cartcontroller");?>>cart</a> ( <?=$this->session->userdata('cartItems');?> ) | <a href="#">checkout</a> </span>
 					</p>
 				</div>
 			</section> <!-- end top_nav -->
@@ -48,9 +48,9 @@
 					<div id="center_icons">
 						<ul id="icons">
 							<li><a target="_blank" href="https://www.facebook.com/akeroclothing?ref=br_tf"><img src=<?=base_url("images/icons/facebook.png");?>></a></li>
-							<li><a target="_blank" href="#"><img src=<?=base_url("images/icons/twitter.png");?>></a></li>
+							<li><a target="_blank" href="https://www.twitter.com/AkeroClothing"><img src=<?=base_url("images/icons/twitter.png");?>></a></li>
 							<li><a target="_blank" href="#"><img src=<?=base_url("images/icons/instagram.png");?>></a></li>
-							<li><a target="_blank" href="#"><img src=<?=base_url("images/icons/tumblr.png");?>></a></li>
+							<li><a target="_blank" href="http://www.akeroclothing.tumblr.com/"><img src=<?=base_url("images/icons/tumblr.png");?>></a></li>
 						</ul>
 					</div> <!-- end center_icons -->
 				</nav>

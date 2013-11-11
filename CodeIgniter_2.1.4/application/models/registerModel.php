@@ -1,6 +1,6 @@
 <?php
 
-class registerModel extends CI_Model
+class registermodel extends CI_Model
 {
     public function __construct()
     {

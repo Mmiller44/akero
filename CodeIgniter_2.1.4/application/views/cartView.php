@@ -18,19 +18,20 @@
 					<div class="wishlist_product">
 						<div class="eight columns">
 							<div class="img_thumb">
-<!-- 								<img src="../../../images/products/<?=$item->name?>-thumb.png" />
- -->							</div>
+								<img src="../../images/products/<?=$item['name']?>-thumb.png" />
+							</div>
 							<p class="item_name"> <a href="#"><?php echo $item['name']; ?></a></p>
 						</div>
-						<p class="two columns center_text"> <span class="labels">size:</span>small </p>
-						<p class="two columns center_text"> <span class="labels">price:</span> $<?php echo $item['subtotal']; ?> </p>
+						<p class="two columns center_text"> <span class="labels">size:</span><?php echo $item['size']; ?></p>
+						<p class="two columns center_text"> <span class="labels">price:</span> $<?php echo $item['subtotal']; ?>.00 </p>
 						<div class="two columns center_text"> 
-							<span class="labels">quantity:</span>
-							<input type="text" name="quantity" class="quantity" required="required"><?php echo anchor('CartController/update/'.$item['rowid'],'update'); ?>
+							<span class="labels">quantity:</span></span> <?php echo $item['qty']; ?> </p>
+							
 							<!-- <a href="#">update</a> -->
 						
 						</div>
-						<p class="two columns center_text"><?php echo anchor('CartController/remove/'.$item['rowid'],'delete'); ?></a></p>
+						<p class="two columns center_text"><?php echo anchor('../../cartcontroller/update/'.$item['rowid'],'add item'); ?>
+							<br><?php echo anchor('../../cartcontroller/remove/'.$item['rowid'],'delete item'); ?></a></p>
 						<p class="clear_fix"></p>
 					</div> <!-- end wishlist_product -->
 
@@ -47,7 +48,7 @@
 					<p> <span class="shipping">shipping:</span> $0.00</p>
 					<p> <span class="tax">tax:</span> $0.00</p>
 					<div class="divider clear_fix"></div>
-					<p> <span class="total">total:</span> <span class="total_price">$<?php echo $this->cart->total(); ?></span>
+					<p> <span class="total">total:</span> <span class="total_price">$<?php echo $this->cart->total(); ?>.00</span>
 						<button id="checkout_btn"> checkout </button></p>
 
 				</section> <!-- end totals -->

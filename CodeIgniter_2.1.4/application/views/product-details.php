@@ -1,7 +1,7 @@
 			<div id="main_content" class="container">
 
 			<?php foreach($items as $item): ?>
-			<?php echo form_open('CartController/add'); ?>
+			<?php echo form_open(base_url('cartcontroller/add')); ?>
 
 				<section id="product_img" class="six columns">
 					<img src="../../images/products/<?=$item->name?>-large.png">
@@ -64,7 +64,7 @@
 					<div class=<?=$this->session->userdata('reviews')?>>
 						<h4> Tell us what you think! </h4>
 
-			<?php echo form_open('postReviewController'); ?>
+			<?php echo form_open('postReviewController/review_input'); ?>
 
 							<textarea name="review_input" id="review_input" required="required" maxlength="300" rows="5"></textarea>
 							<input type="submit" name="review_submit" id="review_submit" value="submit">

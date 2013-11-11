@@ -11,7 +11,8 @@ class detailsController extends CI_Controller {
 	{
 		$this->db->select('id');
 		$query = $this->db->get_where('products', array('name' => $productName));
-		$id = $query->result()[0]->id;
+		$result = $query->result();
+		$id = $result[0]->id;
 
 		$sessionData = array(
 
@@ -34,9 +35,10 @@ class detailsController extends CI_Controller {
 		}else
 		{
 			$this->load->model('database');
-			$products['items'] = $this->database->get_specific_product($productName);
+			$data['items'] = $this->database->get_specific_product($productName);
+			$data['reviews'] = $this->database->get_reviews($this->session->userdata('productID'));
 			$this->load->view('header');
-			$this->load->view('product-details', $products);
+			$this->load->view('product-details', $data);
 			$this->load->view('footer');
 			// echo $products['items'];
 		}

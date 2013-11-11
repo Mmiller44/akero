@@ -22,8 +22,7 @@
 						</div>
 						<p class="two columns center_text"> <span class="labels">size:</span>Any </p>
 						<p class="two columns center_text"> <span class="labels">price:</span>$<?=$item->price?>.00</p>
-						<p class="two columns center_text"><a href="#">add to cart</a></p>
-						<p class="two columns center_text"><a href="#">delete</a></p>
+						<p class="two columns center_text"><a href="../../removeWishlistController/removeWishlist/<?=$item->name?>">delete</a></p>
 						<p class="clear_fix"></p>
 					</div> <!-- end wishlist_product -->
 

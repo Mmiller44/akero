@@ -31,7 +31,6 @@ class loginController extends CI_Controller {
 				$sessionData = array(
                    		'email'     => $email,
                   		'logged_in' => True,
-                   		'cartItems' => 0,
                    		'reviews'   => 'True',
                    		'userID'	=> $user_id
                );

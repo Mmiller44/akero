@@ -1,11 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class FavoritesController extends CI_Controller {
+class postReviewController extends CI_Controller {
 
-	public function index()
+	public function index($reviewText)
 	{
-		//$this->load->model('database');
-		//$products['items'] = $this->database->get_entries();
-		$this->load->view('favorites');
+		$this->load->model('database');
+		$this->database->post_review($reviewText)
 	}
 }
